@@ -20,24 +20,27 @@ export class CategoriasPage {
 
   bucketUrl: string = API_CONFIG.bucketBaseUrl;
   items: CategoriaDTO[];
-  
+
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     public navParams: NavParams,
     public categoriaService: CategoriaService
     ) {
-      
+
   }
 
   ionViewDidLoad() {
     this.categoriaService.findAll()
       .subscribe(response => {
         //console.log(response);
-        
+
         this.items = response;
-        
+
       },
         error => {});
   }
 
+  showProdutos(){
+    this.navCtrl.push('ProdutosPage');
+  }
 }

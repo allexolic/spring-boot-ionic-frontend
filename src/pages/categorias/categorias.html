@@ -7,9 +7,9 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>  
+<ion-content padding>
   <ion-list>
-    <button ion-item *ngFor="let item of items">
+    <button ion-item *ngFor="let item of items" (click)="showProdutos()">
       <ion-thumbnail item-left>
         <img [src]="bucketUrl + '/cat' + item.id + '.jpg'" />
       </ion-thumbnail>
