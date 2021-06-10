@@ -19,7 +19,11 @@ export class ProdutosPage {
               public loadingCtrl: LoadingController) {
   }
 
-  ionViewDidLoad() {
+  ionViewDidLoad(){
+    this.loadData();
+  }
+
+  loadData() {
     //console.log('ionViewDidLoad ProdutosPage');
     let categoria_id = this.navParams.get('categoria_id');
     let loader = this.presentLoading();
@@ -70,5 +74,12 @@ export class ProdutosPage {
     });
     loader.present();
     return loader;
+  }
+
+  doRefresh(event){
+    this.loadData();
+    setTimeout(() => {
+      event.complete();
+    }, 1000);
   }
 }
